@@ -1,0 +1,61 @@
+{
+    "firstName": "abdulmalik",
+    "lastName": "amzat",
+    "email": "ayo@gmail.com",
+    "password": "Akangbe1?",
+    "phoneNumber": "07010549096",
+    "image": "data:image/jpeg;base64,/9j/4SdTRXhpZgAATU0AKgAAAA",
+    "dob": "2023-10-28",
+    "gender": "male",
+    "address": "pwd"
+}
+
+
+{
+    "from": "2022",
+    "to": "2023",
+    "term": [
+        {
+        "months": [
+            {
+            "month": "January",
+            "days": ["Day 1", "Day 2"],
+            "events": ["Event A", "Event B"]
+            },
+            {
+            "month": "February",
+            "days": ["Day 3", "Day 4"],
+            "events": ["Event C", "Event D"]
+            }
+        ],
+        "position": "Term 1"
+        }
+    ]
+}
+
+
+{
+    "sessionId": "6542d9013a73edd48652e8cd",
+    "name": "Third",
+    "months": [
+            {
+            "month": "January",
+            "days": ["Day 1", "Day 2"],
+            "events": ["Event A", "Event B"]
+            },
+            {
+            "month": "February",
+            "days": ["Day 3", "Day 4"],
+            "events": ["Event C", "Event D"]
+            }
+        ]
+}
+
+created_by,
+student,
+_class,
+term,
+subject,
+ca1,
+ca2,
+exam
