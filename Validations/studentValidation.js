@@ -6,12 +6,7 @@ const stringPassswordError = 'Password must be strong. At least one upper case a
 
 export const signup = (req, res, next) => { 
     const schema =  Joi.object().keys({
-        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().trim()
-          .lowercase().messages({
-            'string.email': 'Email must be a valid email',
-            'string.empty': 'Email cannot be an empty field',
-            'any.required': 'Email is a required field',
-        }),
+        email: Joi.string().required().max(20).min(3).trim(),
         password: Joi.string().regex(strongPasswordRegex).required().messages({
           'string.empty': 'Password is required',
           'string.pattern.base': stringPassswordError,
@@ -41,12 +36,7 @@ export const signup = (req, res, next) => {
 
 export const update_details = (req, res, next) => { 
   const schema =  Joi.object().keys({
-      email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().trim()
-        .lowercase().messages({
-          'string.email': 'Email must be a valid email',
-          'string.empty': 'Email cannot be an empty field',
-          'any.required': 'Email is a required field',
-      }),
+      email: Joi.string().required().max(20).min(3).trim(),
       firstName: Joi.string().required().max(20).min(3).trim(),
       lastName: Joi.string().required().max(20).min(3).trim(),
       parentPhoneNumber: Joi.string().trim(),
@@ -72,8 +62,7 @@ export const update_details = (req, res, next) => {
 
 export const signin = (req, res, next) => { 
     const schema =  Joi.object().keys({
-        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required().trim()
-          .lowercase().trim(),
+        email: Joi.string().required().max(20).min(3).trim(),
         password: Joi.string().required().trim()
     })
     validateRequest (req, next, schema)
