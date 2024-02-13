@@ -19,7 +19,7 @@ const studentSchema = mongoose.Schema(
 		dob: { type: Date },
         house: {
             type: String,
-            enum: ["alpha", "jaguar", "dornier", "hercules"],
+            enum: ["Yellow", "Green", "Blue", "Red"],
         },
         _class: {
 			type: mongoose.Schema.Types.ObjectId,
