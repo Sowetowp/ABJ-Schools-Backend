@@ -1,5 +1,5 @@
 import express from 'express'
-import { admin_get_all, admin_get_all_parents, admin_get_all_students, admin_get_all_teachers, admin_get_broadsheet, admin_get_results, admin_login, admin_search_parent, admin_search_student, admin_search_teacher, admin_signup, create_class, create_department, create_post, create_subject, delete_single_event, delete_single_image, delete_single_news, delete_single_parent, delete_single_reesult, delete_single_session, delete_single_student, delete_single_teacher, delete_single_term, get_by_class, get_classes, get_departments, get_posts, get_subjects, payment, payment_class, payment_delete, student_signup, teacher_signup, update_admin_password, update_event_data, update_fee, update_image_data, update_news_data, update_paid, update_parent_data, update_session_data, update_student_data, update_teacher_data, update_term_data } from '../controllers/AdminController.js'
+import { admin_get_all, admin_get_all_parents, admin_get_all_students, admin_get_all_teachers, admin_get_broadsheet, admin_get_results, admin_login, admin_search_parent, admin_search_student, admin_search_teacher, admin_signup, create_class, create_department, create_post, create_subject, delete_single_event, delete_single_image, delete_single_news, delete_single_parent, delete_single_reesult, delete_single_session, delete_single_student, delete_single_teacher, delete_single_term, get_by_class, get_classes, get_departments, get_posts, get_subjects, payment, payment_class, payment_delete, student_signup, teacher_signup, update_admin_password, update_class, update_event_data, update_fee, update_image_data, update_news_data, update_paid, update_parent_data, update_session_data, update_student_data, update_teacher_data, update_term_data } from '../controllers/AdminController.js'
 import * as AdminValidation from "../Validations/adminValidation.js"
 import { adminProtect } from '../middlewares/auth_handlers.js'
 import * as TeacherValidation from "../Validations/teacherValidation.js"
@@ -80,6 +80,8 @@ router.route('/deleteevent/:id')
     .delete(adminProtect, delete_single_event)
 router.route('/updateteacher/:id')
     .patch(TeacherValidation.update_details, adminProtect, update_teacher_data)
+router.route('/updateclasst')
+    .post(adminProtect, update_class)
 router.route('/updateparent/:id')
     .patch(ParentValidation.update_details, adminProtect, update_parent_data)
 router.route('/updatestudent/:id')

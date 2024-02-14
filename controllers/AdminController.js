@@ -508,11 +508,13 @@ export const create_class = asyncHandler(async (req, res, next) => {
 export const get_classes = asyncHandler(async (req, res, next) => {
 	try {
 		const classes = await Classes.find({})
+		const teachers = await Teacher.find({})
 		if (classes) {
 			res.status(201).json({
 				message: 'success',
 				status: 'ok',
 				data: classes,
+				teachers: teachers
 			})
 		} else {
 			throw new Error('something went wrong')
@@ -1766,6 +1768,33 @@ export const get_by_class = asyncHandler(async (req, res, next) => {
 				status: 'ok',
 				data: student
 			})
+		} else {
+			res.status(401)
+			throw new Error('Something went wrong.')
+		}
+	} catch (error) {
+		next(error);
+	}
+})
+
+export const update_class = asyncHandler(async (req, res, next) => {
+	try {
+		const {
+			classTeacher,
+			_class
+		} = req.body
+		const addmin = await Classes.findOne({_class})
+		if (addmin) {
+			addmin.classTeacher = classTeacher || addmin.classTeacher
+			
+			const updated = await addmin.save()
+			if (updated) {
+				res.status(201).json({
+					message: 'Event has been updated!!',
+					status: 'ok',
+					data: updated
+				})
+			}
 		} else {
 			res.status(401)
 			throw new Error('Something went wrong.')
