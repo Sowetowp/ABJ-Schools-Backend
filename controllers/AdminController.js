@@ -1783,7 +1783,8 @@ export const update_class = asyncHandler(async (req, res, next) => {
 			classTeacher,
 			_class
 		} = req.body
-		const addmin = await Classes.findOne({_class})
+		console.log(req.body)
+		const addmin = await Classes.findOne({_id:_class})
 		if (addmin) {
 			addmin.classTeacher = classTeacher || addmin.classTeacher
 			
